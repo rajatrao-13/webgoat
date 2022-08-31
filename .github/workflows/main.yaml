@@ -16,3 +16,19 @@ jobs:
     needs: build
     steps:
       - run: echo "This is a test step"
+
+  odc-backend:
+    runs-on: ubuntu-latest
+    name: depecheck_test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - run: chmod +x ./run-depcheck.sh
+      - run: ./run-depcheck.sh
+
+      - name: Upload Test results
+        uses: actions/upload-artifact@v2
+        with:
+           name: Depcheck report
+           path: dependency-check-report.csv
