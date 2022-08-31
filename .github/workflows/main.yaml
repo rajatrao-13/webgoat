@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
            name: Depcheck report
-           path: dependency-check-report.csv
+           path: reports/dependency-check-report.csv
